@@ -73,6 +73,9 @@ export default class App {
     routes.forEach(route => {
       this.app.use('/', route.router);
     });
+
+    this.app.use(express.static('images'));
+    this.app.use(express.static('public'));
   }
 
   private initializeSwagger() {
