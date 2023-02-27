@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://gitlab.com/fabrigeas1/shopping-app-restful-api/issues"
   },
-  "homepage": "https://gitlab.com/fabrigeas1/shopping-app-restful-api#readme"
+  "homepage": "https://gitlab.com/fabrigeas1/shopping-app-restful-api#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.7.4"
+  }
 }
