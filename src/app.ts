@@ -6,6 +6,8 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 import mongoose, { connect, set } from 'mongoose';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
 import { dbConnection } from '@databases';
 import errorMiddleware from '@middlewares/error.middleware';
@@ -23,6 +25,7 @@ export default class App {
     this.port = PORT || 3000;
 
     this.initializeMiddlewares();
+    this.initializeSwagger();
     this.initializeErrorHandling();
     this.connectToDatabase();
     this.initializeRoutes(routes);
@@ -70,5 +73,22 @@ export default class App {
     routes.forEach(route => {
       this.app.use('/', route.router);
     });
+  }
+
+  private initializeSwagger() {
+    const options = {
+      swaggerDefinition: {
+        components: {},
+        info: {
+          title: 'REST API',
+          version: '1.0.0',
+          description: 'Shopping app RESTful API',
+        },
+      },
+      apis: ['swagger.yaml'],
+    };
+
+    const specs = swaggerJSDoc(options);
+    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
   }
 }

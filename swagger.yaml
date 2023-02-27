@@ -1,0 +1,182 @@
+tags:
+  - name: offers
+    description: offers API
+
+paths:
+  /api/offers:
+    get:
+      tags:
+        - offers
+      summary: find  offers
+      parameters:
+        - in: query
+          name: title
+          type: string
+        - in: query
+          name: offerType
+          schema:
+          $ref: '#/components/schemas/OfferType'
+        - in: query
+          name: daysOfTheWeek
+          type: string
+        - in: query
+          name: date
+          type: string
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+    post:
+      tags:
+        - offers
+      summary: Create a new offer
+      parameters:
+        - name: body
+          in: body
+          description: user Data
+          required: true
+          schema:
+            $ref: '#/definitions/offers'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+  /api/offers/{id}:
+    get:
+      tags:
+        - offers
+      summary: Find offer By Id
+      parameters:
+        - name: id
+          in: path
+          description: offer Id
+          required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+    put:
+      tags:
+        - offers
+      summary: Update offer By Id
+      parameters:
+        - name: id
+          in: path
+          description: offer Id
+          required: true
+        - name: body
+          in: body
+          description: user Data
+          required: true
+          schema:
+            $ref: '#/definitions/offers'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+    patch:
+      tags:
+        - offers
+      summary: Update offer By Id
+      parameters:
+        - name: id
+          in: path
+          description: offer Id
+          required: true
+        - name: body
+          in: body
+          description: user Data
+          required: true
+          schema:
+            $ref: '#/definitions/offers'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+    delete:
+      tags:
+        - offers
+      summary: Delete offer By Id
+      parameters:
+        - name: id
+          in: path
+          description: offer Id
+          required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+definitions:
+  offers:
+    type: object
+    required:
+      - title
+      - price
+      - offerType
+      - images
+      - daysOfThheWeek
+    properties:
+      title:
+        type: string
+        description: user Email
+        example: example offer
+      price:
+        type: string
+        description: unit price
+        example: 3500
+      offerType:
+        schema:
+          $ref: '#/components/schemas/OfferType'
+          example: drink
+      description:
+        type: string
+        example: ""
+      images:
+        type: array
+        description: offer Images
+        example: []
+      daysOfTheWeek:
+        type: array
+        example: [Monday,Mi, Sunda]
+      date:
+        type: string
+        example: "Sat Sep 23 1989 09:56:14 GMT+0100 (Central European Standard Time)"
+
+schemes:
+  - https
+  - http
+
+components:
+  schemas:
+    OfferType:
+      in: quary
+      name: offerType
+      type: string
+      enum: 
+        - food
+        - drink
+        - salad
+        - offer
