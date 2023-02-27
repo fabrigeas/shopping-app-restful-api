@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier --write src",
+    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +32,11 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "git-commit-msg-linter": "^4.7.4",
     "prettier": "^2.8.4"
   }
