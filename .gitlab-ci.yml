@@ -1,0 +1,34 @@
+stages:
+  - test
+  - lint
+  
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+linting:
+    image: node:latest
+    stage: lint
+    before_script:
+      - npm install
+    script:
+      - npm run lint
+    allow_failure: true
+
+unit-test:
+  image: node:latest
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm run test:ci
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  artifacts:
+    paths:
+      - coverage/
+    when: always
+    reports:
+      junit:
+        - junit.xml
+  allow_failure: true
