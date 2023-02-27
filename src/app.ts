@@ -5,7 +5,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
+import mongoose, { connect, set } from 'mongoose';
 import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
+import { dbConnection } from '@databases';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 
@@ -21,6 +23,7 @@ export default class App {
 
     this.initializeMiddlewares();
     this.initializeErrorHandling();
+    this.connectToDatabase();
   }
 
   public listen() {
@@ -34,6 +37,16 @@ export default class App {
 
   public getServer() {
     return this.app;
+  }
+
+  private connectToDatabase() {
+    if (this.env !== 'production') {
+      set('debug', true);
+    }
+
+    mongoose.set('strictQuery', false);
+
+    connect(dbConnection.url, dbConnection.options);
   }
 
   private initializeMiddlewares() {
