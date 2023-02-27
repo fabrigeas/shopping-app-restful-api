@@ -10,13 +10,14 @@ import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
 import { dbConnection } from '@databases';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import { Routes } from '@interfaces/routes.interface';
 
 export default class App {
   public app: express.Application;
   public env: string;
   public port: string | number;
 
-  constructor() {
+  constructor(routes: Routes[]) {
     this.app = express();
     this.env = NODE_ENV || 'development';
     this.port = PORT || 3000;
@@ -24,6 +25,7 @@ export default class App {
     this.initializeMiddlewares();
     this.initializeErrorHandling();
     this.connectToDatabase();
+    this.initializeRoutes(routes);
   }
 
   public listen() {
@@ -62,5 +64,11 @@ export default class App {
 
   private initializeErrorHandling() {
     this.app.use(errorMiddleware);
+  }
+
+  private initializeRoutes(routes: Routes[]) {
+    routes.forEach(route => {
+      this.app.use('/', route.router);
+    });
   }
 }
