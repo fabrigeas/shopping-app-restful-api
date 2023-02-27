@@ -3,6 +3,8 @@ tags:
     description: users API
   - name: offers
     description: offers API
+  - name: files
+    description: files API
   - name: auth
     description: authentification API
 
@@ -228,6 +230,42 @@ paths:
         500:
           description: 'Server Error'
 
+  /api/files/{id}:
+    put:
+      tags:
+        - files
+      summary: Uploads a file.
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: path
+          name: id
+          description: Id(offer)
+          required: true
+        - in: formData
+          name: file
+          type: file
+          description: The file to upload.
+    delete:
+      tags:
+        - files
+      summary: Delete a file
+      parameters:
+        - in: path
+          name: id
+          description: Id(offer)
+          required: true
+        - in: header
+          name: filename
+          schema:
+            type: string
+            description: string id of user to delete
+          required: true
+      responses:
+        200:
+          description: 'OK'
+
+  # authentification
   /auth/sign-up:
     post:
       tags:
