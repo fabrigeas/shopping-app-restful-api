@@ -13,6 +13,6 @@ export interface TokenData {
 export interface RequestWithUser extends Request {
   // TODO:
   cookies: any;
-  header(arg0: string): unknown;
+  header: any;
   user: User;
 }
