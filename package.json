@@ -1,0 +1,26 @@
+{
+  "name": "shpping-app-restful-api",
+  "version": "1.0.0",
+  "description": "A restful api backend for shpopping app. currently designed for a restaurant, but can easily be customized for other products",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/fabrigeas1/shopping-app-restful-api.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongoose",
+    "jest",
+    "typescript"
+  ],
+  "author": "Fabrice Feugang Kemegni",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/fabrigeas1/shopping-app-restful-api/issues"
+  },
+  "homepage": "https://gitlab.com/fabrigeas1/shopping-app-restful-api#readme"
+}
