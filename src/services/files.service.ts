@@ -1,6 +1,6 @@
 import { HttpException } from '@exceptions/HttpException';
 import fs from 'fs';
-import { STATUS_CODES, STATUS_MESSAGE } from '@utils/constants';
+import { STATUS_CODES } from '@utils/constants';
 import formidable from 'formidable';
 import { Request, Response, NextFunction } from 'express';
 
@@ -39,7 +39,7 @@ class FileService {
 
           res
             .status(STATUS_CODES.CREATED)
-            .json({ originalFilename, message: STATUS_MESSAGE.CREATED });
+            .json({ originalFilename, message: 'uploaded' });
         });
       } catch (error) {
         next(error);
@@ -58,20 +58,29 @@ class FileService {
         return;
       }
 
-      if (!filename) {
+      if (filename) {
+        const file = `${dir}/${filename}`;
+        if (!fs.existsSync(file)) {
+          res.status(STATUS_CODES.SUCCESS).send(`${file} Does not exist`);
+          return;
+        }
+
+        fs.rmSync(file);
+
+        if (fs.readdirSync(dir).length < 1) {
+          fs.rmdirSync(dir);
+          res
+            .status(STATUS_CODES.SUCCESS)
+            .send(`Deleted '${dir}' because it is now empty`);
+          return;
+        }
+
+        res.status(STATUS_CODES.SUCCESS).send(`${file} Deleted`);
+      } else {
         fs.rmdirSync(dir, { recursive: true });
-        res.status(STATUS_CODES.SUCCESS).send(`${dir} ${STATUS_MESSAGE.DELETED}`);
+        res.status(STATUS_CODES.SUCCESS).send(`${dir} `);
         return;
       }
-
-      const file = `${dir}/${filename}`;
-
-      if (!fs.existsSync(file)) {
-        res.status(STATUS_CODES.SUCCESS).send(`${file} ${STATUS_MESSAGE.DELETED}`);
-        return;
-      }
-
-      fs.rmSync(file);
     } catch (error) {
       next(error);
     }
