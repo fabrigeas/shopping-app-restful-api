@@ -13,7 +13,7 @@ class IndexRoute implements Routes {
 
   private initializeRoutes() {
     this.router.get(
-      ['/', '/offers', '/sign-in', '/offer/*', '/my/*'],
+      ['/', '/offers?', '/offer/*', '/my*', '/sign*'],
       this.indexController.index,
     );
   }

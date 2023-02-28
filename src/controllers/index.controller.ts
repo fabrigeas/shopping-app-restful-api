@@ -13,7 +13,7 @@ export default class IndexController {
 
   public index = (req: Request, res: Response, next: NextFunction) => {
     try {
-      res.sendFile(PUBLIC_DIR, 'index.html');
+      res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
     } catch (error) {
       next(error);
     }
