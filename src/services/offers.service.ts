@@ -71,14 +71,7 @@ class OfferService {
         );
     }
 
-    const updateOfferById: Offer = await this.offers.findByIdAndUpdate(
-      offerId,
-      offerData,
-    );
-    if (!updateOfferById)
-      throw new HttpException(STATUS_CODES.CONFLICT, "Offer doesn't exist");
-
-    return updateOfferById;
+    return await this.patchOffer(offerId, offerData);
   }
 
   public async patchOffer(_id: string, offerData: CreateOfferDto) {
