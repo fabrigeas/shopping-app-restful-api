@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
     container_name: server
     ports:
-      - '3000:3000'
+      - '53850:53850'
     volumes:
       - ./:/app
       - /app/node_modules
