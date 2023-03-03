@@ -51,7 +51,7 @@ export default class App {
 
     mongoose.set('strictQuery', false);
 
-    connect(dbConnection.url, dbConnection.options);
+    // connect(dbConnection.url, dbConnection.options);
   }
 
   private initializeMiddlewares() {
