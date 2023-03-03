@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/dtos/file.dto.ts"],"sourcesContent":["import { IsString } from 'class-validator';\n\nexport class DeleteFileDto {\n  @IsString()\n  public filename: string;\n}\n"],"names":["DeleteFileDto","IsString"],"mappings":";;;;+BAEaA;;aAAAA;;gCAFY;;;;;;;;;;AAElB,IAAA,AAAMA,gBAAN,MAAMA;AAGb;;IAFGC,IAAAA,wBAAQ;;GADED"}
