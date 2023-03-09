@@ -296,7 +296,7 @@ paths:
           description: user Data
           required: true
           schema:
-            $ref: '#/definitions/users'
+            $ref: '#/definitions/signIn'
       responses:
         200:
           description: 'OK'
@@ -327,12 +327,38 @@ paths:
 
 # definitions
 definitions:
-  users:
+  signIn:
     type: object
     required:
       - email
       - password
     properties:
+      email:
+        type: string
+        description: user Email
+        example: lorem@ipsum.dolot
+      password:
+        type: string
+        description: user Password
+        password: passwordqwertz
+    examples:
+      externalValue: src/http/user.http
+  users:
+    type: object
+    required:
+      - firstName
+      - lastName
+      - email
+      - password
+    properties:
+      firstName:
+        type: string
+        description: user First name
+        example: John
+      lastName:
+        type: string
+        description: user last name
+        example: Doe
       email:
         type: string
         description: user Email

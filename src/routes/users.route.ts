@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import UsersController from '@controllers/users.controller';
-import { CreateUserDto } from '@dtos/users.dto';
+import { CreateUserDto, UserSignInDto } from '@dtos/users.dto';
 import { Routes } from '@interfaces/routes.interface';
 import validationMiddleware from '@middlewares/validation.middleware';
 
@@ -18,7 +18,7 @@ class UsersRoute implements Routes {
     this.router.get(`${this.path}/:id`, this.usersController.getUserById);
     this.router.post(
       `${this.path}`,
-      validationMiddleware(CreateUserDto, 'body'),
+      validationMiddleware(UserSignInDto, 'body'),
       this.usersController.createUser,
     );
     this.router.put(
