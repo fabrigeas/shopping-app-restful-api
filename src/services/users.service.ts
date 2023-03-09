@@ -38,24 +38,28 @@ class UserService {
     return createUserData;
   }
 
-  public async updateUser(userId: string, userData: CreateUserDto): Promise<User> {
+  public async updateUser(_id: string, userData: CreateUserDto): Promise<User> {
     if (isEmpty(userData)) throw new HttpException(400, 'userData is empty');
 
-    if (userData.email) {
-      const findUser: User = await this.users.findOne({ email: userData.email });
-      if (findUser && findUser._id != userId)
+    const { email } = userData;
+
+    if (email) {
+      const findUser: User = await this.users.findOne({ email });
+      if (findUser && findUser._id != _id)
         throw new HttpException(409, `This email ${userData.email} already exists`);
     }
 
-    if (userData.password) {
+    const { password } = userData;
+
+    if (password) {
       const hashedPassword = await hash(userData.password, 10);
       userData = { ...userData, password: hashedPassword };
     }
 
-    const updateUserById: User = await this.users.findByIdAndUpdate(userId, { userData });
-    if (!updateUserById) throw new HttpException(409, "User doesn't exist");
+    await this.users.updateOne({ _id }, userData);
+    const result: User = await this.users.findById(_id);
 
-    return updateUserById;
+    return result;
   }
 
   public async deleteUser(userId: string): Promise<User> {
