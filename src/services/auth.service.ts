@@ -37,7 +37,7 @@ class AuthService {
 
   public async signIn(
     userData: CreateUserDto,
-  ): Promise<{ cookie: string; user: User; token: TokenData }> {
+  ): Promise<{ cookie: string; user: User; tokenData: TokenData }> {
     if (isEmpty(userData))
       throw new HttpException(STATUS_CODES.SUCCESS, MISSING_USER_DATA);
 
@@ -52,10 +52,10 @@ class AuthService {
     if (!isPasswordMatching)
       throw new HttpException(STATUS_CODES.CONFLICT, 'Password is not matching');
 
-    const token = this.createToken(user);
-    const cookie = this.createCookie(token);
+    const tokenData = this.createToken(user);
+    const cookie = this.createCookie(tokenData);
 
-    return { cookie, user, token };
+    return { cookie, user, tokenData };
   }
 
   public async signOut(userData: User): Promise<User> {
