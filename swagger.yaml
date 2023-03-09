@@ -284,6 +284,39 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+          
+  /auth/password/{id}:
+    put:
+      tags:
+        - auth
+      parameters:
+        - in: path
+          name: id
+          required: true
+          example: 64099def7c379678c2bd5687
+        - in: body
+          name: password
+          schema:
+            type: object
+            required:
+              - password
+            properties:
+              password:
+                type: string
+                description: user Password
+                password: passwordqwertz
+                example: pass
+          required: true
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
   /auth/sign-out:
     post:
       tags:
@@ -346,7 +379,7 @@ definitions:
         description: user Password
         password: passwordqwertz
     examples:
-      externalValue: src/http/user.http
+      externalValue: src/http/users.http
   offers:
     type: object
     required:

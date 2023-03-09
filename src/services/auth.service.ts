@@ -10,6 +10,7 @@ import { isEmpty } from '@utils/util';
 import { STATUS_CODES } from '@utils/constants';
 
 const MISSING_USER_DATA = 'userData is empty';
+const HASH_LENGTH = 10;
 
 class AuthService {
   public users = userModel;
@@ -25,7 +26,7 @@ class AuthService {
         `This email ${userData.email} already exists`,
       );
 
-    const hashedPassword = await hash(userData.password, 10);
+    const hashedPassword = await hash(userData.password, HASH_LENGTH);
     const createUserData: User = await this.users.create({
       ...userData,
       password: hashedPassword,
@@ -80,6 +81,25 @@ class AuthService {
     const expiresIn: number = 60 * 60;
 
     return { expiresIn, token: sign(dataStoredInToken, secretKey, { expiresIn }) };
+  }
+
+  public async updatePassword(_id: string, unhashedPwd: string) {
+    if (isEmpty(unhashedPwd)) {
+      throw new HttpException(STATUS_CODES.SUCCESS, 'password missing');
+    }
+
+    const user: User = await this.users.findById(_id);
+
+    if (!user)
+      throw new HttpException(
+        STATUS_CODES.CONFLICT,
+        `This user with ${_id} was not found`,
+      );
+
+    const password = await hash(unhashedPwd, HASH_LENGTH);
+    await this.users.updateOne({ _id }, { password });
+
+    return await this.users.findById(_id);
   }
 
   public createCookie(token: TokenData): string {

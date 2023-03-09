@@ -20,3 +20,7 @@ export class UpdateUserDto {
   @IsOptional() @IsString() public lastName: string;
   @IsOptional() @IsString() public email: string;
 }
+
+export class UpdatePasswordDto {
+  @IsString() public password: string;
+}

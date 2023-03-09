@@ -42,6 +42,18 @@ class AuthController {
       next(error);
     }
   };
+
+  public updatePassword = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      await this.authService.updatePassword(req.params.id, req.body.password);
+
+      res
+        .status(STATUS_CODES.SUCCESS)
+        .json({ message: `password ${STATUS_MESSAGE.UPDATED}` });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 
 export default AuthController;
