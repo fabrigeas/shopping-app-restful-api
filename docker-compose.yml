@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
     container_name: server
     ports:
-      - '61155:61155'
+      - '50559:50559'
     volumes:
       - ./:/app
       - /app/node_modules
