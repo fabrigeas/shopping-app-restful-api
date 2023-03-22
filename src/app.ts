@@ -22,7 +22,7 @@ export default class App {
   constructor(routes: Routes[]) {
     this.app = express();
     this.env = NODE_ENV || 'development';
-    this.port = PORT || 61155;
+    this.port = PORT || 50559;
 
     this.initializeMiddlewares();
     this.initializeSwagger();
@@ -58,7 +58,11 @@ export default class App {
     this.app.use(morgan(LOG_FORMAT, { stream }));
     this.app.use(cors({ origin: ORIGIN, credentials: CREDENTIALS }));
     this.app.use(hpp());
-    this.app.use(helmet());
+    this.app.use(
+      helmet({
+        crossOriginResourcePolicy: false,
+      }),
+    );
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));

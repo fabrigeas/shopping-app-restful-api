@@ -7,7 +7,7 @@ WORKDIR /app
 
 RUN npm install
 
-EXPOSE 61155
+EXPOSE 50559
 
 # Development build stage
 FROM common-build-stage as development-build-stage
