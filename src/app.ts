@@ -79,7 +79,7 @@ export default class App {
     });
 
     this.app.use(express.static('images'));
-    this.app.use(express.static('public'));
+    this.app.use(express.static('frontend'));
   }
 
   private initializeSwagger() {
