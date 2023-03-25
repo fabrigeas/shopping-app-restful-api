@@ -1,6 +1,6 @@
 {
   "name": "shpping-app-restful-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A restful api backend for shpopping app. currently designed for a restaurant, but can easily be customized for other products",
   "main": "index.js",
   "scripts": {
