@@ -1,0 +1,71 @@
+@import '../../global.scss';
+.sign-in {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 50vh;
+	.logo {
+		height: 5rem;
+		width: 5rem;
+		background: $brown;
+		padding: 1rem;
+		border-radius: 5rem;
+		margin: $large;
+	}
+	form {
+		width: 100%;
+		.form-control {
+			text-align: start;
+			margin-bottom: $medium;
+			display: flex;
+			flex-direction: column;
+			&.submit {
+				padding: 0
+					$x-small;
+			}
+		}
+		input {
+			padding: $medium;
+			border-radius: $small;
+			border: solid
+				$x-small
+				gray;
+			outline: lighten(
+				gray,
+				50
+			);
+		}
+		fieldset {
+			border: none;
+			legend {
+				font-size: xx-large;
+			}
+		}
+	}
+	button {
+		background: green;
+		margin-top: $medium;
+		width: 100%;
+	}
+	.actions {
+		text-align: end;
+		margin-top: $medium;
+		// & .sign-up {
+		// 	margin-top: $medium;
+		// 	text-align: right;
+		// }
+	}
+	@media (max-width: $mobile) {
+		width: 100%;
+		form > div {
+			padding: 0 $small !important;
+		}
+		margin: auto;
+		.sign-in {
+			width: 100%;
+			padding: $medium;
+		}
+	}
+}

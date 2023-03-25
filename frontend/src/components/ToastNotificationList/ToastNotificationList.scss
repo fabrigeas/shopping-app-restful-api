@@ -1,0 +1,24 @@
+@import '../../global.scss';
+
+.toast-notification-list {
+  position: fixed;
+  right: 0;
+  top: 0;
+  max-width: 50%;
+  font-size: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 0.25rem;
+  color: white;
+  z-index: 2;
+
+  .notification-list {
+    position: relative;
+    & > * {
+      margin-bottom: $small;
+    }
+  }
+}

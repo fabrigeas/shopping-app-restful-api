@@ -1,0 +1,54 @@
+@import '../../global.scss';
+
+@mixin outline($color) {
+  outline: solid $x-small $color;
+  color: $color;
+  &:hover {
+    background: none;
+    // scale: 1.02;
+    color: darken($color, 10);
+  }
+}
+.Button {
+  cursor: pointer;
+  border: transparent;
+  padding: $medium;
+  border-radius: $small;
+  color: white;
+  background: $info;
+
+  &:hover {
+    background: lighten($info, 10%);
+  }
+  &.success {
+    background: $success;
+    &:hover {
+      background: lighten($success, 10%);
+    }
+  }
+  &.warning {
+    background: $warning;
+  }
+  &.error {
+    background: $error;
+  }
+  &.outlined {
+    background: none;
+
+    &.primary {
+      @include outline($primary);
+    }
+    &.success {
+      @include outline($success);
+    }
+    &.warning {
+      @include outline($warning);
+    }
+    &.error {
+      @include outline($error);
+    }
+    &.info {
+      @include outline($info);
+    }
+  }
+}

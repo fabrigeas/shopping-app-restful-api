@@ -1,0 +1,151 @@
+@import '../../global.scss';
+.offer-card,
+.card {
+	position: relative;
+	display: flex;
+	min-height: 15rem;
+	border-radius: $small;
+	margin: $medium 0;
+	color: lighten(
+		$color: #000000,
+		$amount: 30
+	);
+	box-shadow: inset $x-small
+		$x-small #f1f1f7;
+	box-shadow: $x-small $x-small
+		$x-small $x-small darkgrey;
+
+	.close {
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: black;
+		font-size: x-large;
+		color: white;
+		padding: 0 $medium;
+		font-family: auto;
+	}
+	@media (max-width: $tablet) {
+		flex-direction: column !important;
+		height: auto;
+		.offer {
+			flex-direction: column;
+		}
+		.image img {
+			height: 60vh !important;
+		}
+		.sub-total {
+			margin-top: $medium;
+		}
+	}
+	.image {
+		flex: 3;
+		height: 15rem;
+		position: relative;
+		padding: $x-small;
+		border: solid;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+	.content {
+		flex: 6;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+		padding: $medium;
+	}
+	.offer {
+		margin-top: auto;
+		display: flex;
+		.order {
+			display: flex;
+			padding: $x-small;
+			& > * {
+				padding: 0
+					$large;
+				font-weight: bold;
+				margin: 0
+					$x-small;
+				border-radius: $small;
+				text-align: center;
+				outline: none;
+				border: solid
+					$x-small
+					#d9e4ff;
+				font-size: x-large;
+				background: none;
+				&:not(props.data):hover {
+					scale: 1.1;
+					cursor: pointer;
+				}
+			}
+			input {
+				border: none;
+				max-width: 3rem;
+				padding: 0;
+			}
+		}
+	}
+	.title {
+		color: #0073e6;
+		font-weight: bold;
+		text-transform: capitalize;
+	}
+	.description {
+		padding: 0 $x-small;
+		color: #009eb0;
+		max-height: 5rem;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: small;
+		text-transform: capitalize;
+	}
+	.price {
+		font-size: larger;
+		font-weight: bold;
+		margin-right: auto;
+	}
+	.link-to-edit-offer {
+		display: block;
+		text-decoration: none;
+		color: white;
+		border-radius: $small;
+		& :hover {
+			background: lighten(
+				$primary,
+				10
+			);
+		}
+	}
+	.tags {
+		position: absolute;
+		top: 0;
+		right: $large;
+		display: flex;
+		gap: $x-small;
+		& > * {
+			border: solid 0.5px
+				darkgray;
+			padding: 0 $x-small;
+		}
+		.active {
+			background: $success;
+		}
+	}
+	.card.highlight {
+		height: 95vh;
+		flex-direction: column;
+
+		& > .image {
+			height: 60vh;
+			flex: unset;
+		}
+		.close {
+			display: block;
+		}
+	}
+}

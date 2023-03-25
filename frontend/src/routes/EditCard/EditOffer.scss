@@ -1,0 +1,162 @@
+@import '../../global.scss';
+.edit-offer {
+	display: flex;
+	gap: $large;
+}
+.image {
+	flex: 3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 25rem;
+	position: relative;
+	img {
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	div {
+		margin-right: auto;
+		display: flex;
+	}
+}
+.content {
+	flex: 2;
+}
+div.form-control {
+	margin-bottom: $large;
+	text-align: start;
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	input,
+	textarea,
+	select {
+		padding: $medium;
+		// width: 100%;
+		margin-top: $small;
+		font-size: larger;
+	}
+}
+.days-of-the-week {
+	display: flex;
+	gap: $large;
+	cursor: pointer;
+
+	& > * {
+		cursor: pointer;
+	}
+	input {
+		margin-left: $x-small;
+		width: auto;
+	}
+}
+.actions {
+	display: flex;
+	gap: $small;
+	margin: auto;
+	padding: $medium 0;
+	justify-content: space-between;
+	& > button {
+		flex: 1;
+	}
+}
+.slider {
+	display: flex;
+	flex-wrap: wrap;
+	.slide {
+		flex-basis: 20rem;
+		border: solid;
+		margin: $medium;
+		&:hover {
+			cursor: pointer;
+			.set-default {
+				display: block;
+			}
+		}
+	}
+	figure {
+		height: 15rem;
+		overflow: hidden;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		img {
+			height: 100%;
+			width: auto;
+		}
+		figcaption {
+			display: none;
+			position: absolute;
+			bottom: 0;
+			width: 80%;
+			margin: auto;
+			& > button {
+				flex: 1;
+				margin: 0
+					$small;
+			}
+		}
+	}
+	.image-placeholder {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+.zoomed {
+	position: fixed;
+	// scale: 2.5;
+	z-index: 2;
+}
+.delete-button {
+	position: absolute;
+	color: red;
+	right: $large;
+	top: $large;
+	&:hover {
+		color: lighten(red, 10);
+		scale: 1.5;
+	}
+}
+.set-default {
+	position: absolute;
+	bottom: 0;
+	display: none;
+}
+.full {
+	width: 100%;
+}
+@media (max-width: $mobile) {
+	h3 {
+		margin: $large;
+	}
+
+	.offer-detail {
+		padding: $small;
+	}
+	.offer-detail,
+	.days-of-the-week,
+	.slider {
+		flex-direction: column;
+	}
+	.slider {
+		padding: $small;
+		.slide {
+			flex-basis: unset;
+			margin: $x-small 0;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		.slide.image-placeholder {
+			border: none !important;
+			button {
+				width: 100%;
+			}
+		}
+	}
+}

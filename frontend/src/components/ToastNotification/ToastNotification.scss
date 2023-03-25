@@ -1,0 +1,68 @@
+@import '../../global.scss';
+.toast-notification {
+	&.primary {
+		border-color: $primary;
+		background-color: $primary;
+	}
+	&.success {
+		border-color: $success;
+		background-color: $success;
+	}
+	&.warning {
+		border-color: $warning;
+		background-color: $warning;
+	}
+	&.error {
+		border-color: $error;
+		background-color: $error;
+	}
+	margin-bottom: 1rem;
+	.header {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-align: center;
+		align-items: center;
+		padding: 0.25rem 0.75rem;
+		// color: #6c757d;
+		background-color: rgba(
+			255,
+			255,
+			255,
+			0.85
+		);
+		background-clip: padding-box;
+		border-bottom: 1px solid
+			rgba(0, 0, 0, 0.05);
+		& > * {
+			margin-right: 0.2rem;
+		}
+		.title {
+			flex: 1;
+		}
+	}
+	.content {
+		padding: 0.75rem;
+	}
+	.footer {
+		& > div {
+			padding: $x-small;
+			background: white;
+		}
+	}
+	button {
+		cursor: pointer !important;
+	}
+	@keyframes increaseWidth {
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
+	}
+
+	.progressBar {
+		animation-name: increaseWidth;
+		animation-duration: 5s;
+	}
+}
