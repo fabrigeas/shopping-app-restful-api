@@ -50,11 +50,11 @@ export default class App {
     this.app.use(morgan('combined', { stream }));
     this.app.use(cors({}));
     this.app.use(hpp());
-    this.app.use(
-      helmet({
-        crossOriginResourcePolicy: false,
-      }),
-    );
+    // this.app.use(
+    //   helmet({
+    //     crossOriginResourcePolicy: false,
+    //   }),
+    // );
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
