@@ -1,6 +1,12 @@
+update frontend bundle
+update frontend bundle
+fix(router): send index.html file for other routes
+chore(npm): uninstall grunt-shell, grunt-ssh
+chore(app): disable helmet
+chore: init grunt for deployment
+build(frontend): update frontend bumdle
 version bump 1.0.1
 build(tsconfig): exclude frontend from tsc
-refactor(frontend): delete content
 temp(frontend): clone shop from react
 build(env)remove en variables before deploying to ec2
 fix: reove redundant ObjectId declaration
