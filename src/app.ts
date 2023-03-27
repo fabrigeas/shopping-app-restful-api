@@ -2,7 +2,7 @@ import express from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import helmet from 'helmet';
+// import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 import mongoose, { connect } from 'mongoose';
@@ -12,6 +12,9 @@ import { dbConnection } from '@databases';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 import { Routes } from '@interfaces/routes.interface';
+import path from 'path';
+
+const pathToFrontend = path.join(__dirname, '../frontend/build');
 
 export default class App {
   public app: express.Application;
@@ -72,6 +75,9 @@ export default class App {
 
     this.app.use(express.static('images'));
     this.app.use(express.static('frontend'));
+    this.app.get('/*', (_, res) => {
+      res.sendFile(pathToFrontend, 'index.html');
+    });
   }
 
   private initializeSwagger() {
