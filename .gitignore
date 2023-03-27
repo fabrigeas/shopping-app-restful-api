@@ -130,3 +130,4 @@ dist
 .pnp.*
 images/offers/
 public/
+secret.json
