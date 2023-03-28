@@ -1,3 +1,4 @@
+version bump 1.13.0
 version bump 1.12.0
 fix(routes): render index page on reload
 version bump 1.11.0
