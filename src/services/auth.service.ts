@@ -15,15 +15,17 @@ class AuthService {
   public users = userModel;
 
   public async signUp(userData: CreateUserDto): Promise<User> {
-    if (isEmpty(userData))
+    if (isEmpty(userData)) {
       throw new HttpException(STATUS_CODES.SUCCESS, MISSING_USER_DATA);
+    }
 
     const user: User = await this.users.findOne({ email: userData.email });
-    if (user)
+    if (user) {
       throw new HttpException(
         STATUS_CODES.CONFLICT,
         `This email ${userData.email} already exists`,
       );
+    }
 
     const hashedPassword = await hash(userData.password, HASH_LENGTH);
     const createUserData: User = await this.users.create({
@@ -37,19 +39,22 @@ class AuthService {
   public async signIn(
     userData: CreateUserDto,
   ): Promise<{ cookie: string; user: User; tokenData: TokenData }> {
-    if (isEmpty(userData))
+    if (isEmpty(userData)) {
       throw new HttpException(STATUS_CODES.SUCCESS, MISSING_USER_DATA);
+    }
 
     const user: User = await this.users.findOne({ email: userData.email });
-    if (!user)
+    if (!user) {
       throw new HttpException(
         STATUS_CODES.CONFLICT,
         `This email ${userData.email} was not found`,
       );
+    }
 
     const isPasswordMatching: boolean = await compare(userData.password, user.password);
-    if (!isPasswordMatching)
+    if (!isPasswordMatching) {
       throw new HttpException(STATUS_CODES.CONFLICT, 'Password is not matching');
+    }
 
     const tokenData = this.createToken(user);
     const cookie = this.createCookie(tokenData);
@@ -58,18 +63,20 @@ class AuthService {
   }
 
   public async signOut(userData: User): Promise<User> {
-    if (isEmpty(userData))
+    if (isEmpty(userData)) {
       throw new HttpException(STATUS_CODES.BAD_REQUEST, MISSING_USER_DATA);
+    }
 
     const user: User = await this.users.findOne({
       email: userData.email,
       password: userData.password,
     });
-    if (!user)
+    if (!user) {
       throw new HttpException(
         STATUS_CODES.CONFLICT,
         `This email ${userData.email} was not found`,
       );
+    }
 
     return user;
   }
@@ -89,12 +96,12 @@ class AuthService {
 
     const user: User = await this.users.findById(_id);
 
-    if (!user)
+    if (!user) {
       throw new HttpException(
         STATUS_CODES.CONFLICT,
         `This user with ${_id} was not found`,
       );
-
+    }
     const password = await hash(unhashedPwd, HASH_LENGTH);
     await this.users.updateOne({ _id }, { password });
 
