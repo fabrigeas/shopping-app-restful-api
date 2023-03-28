@@ -1,3 +1,5 @@
+version bump 1.8.0
+docs: update readme
 version bump 1.7.0
 build(frontend): update frontend bumdle
 Merge branch 'dev' into main
