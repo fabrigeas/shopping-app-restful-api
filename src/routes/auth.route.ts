@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import AuthController from '@controllers/auth.controller';
+import service from '@services/auth.service';
 import { CreateUserDto, UpdatePasswordDto, UserSignInDto } from '@dtos/users.dto';
 import { Routes } from '@interfaces/routes.interface';
 import authMiddleware from '@middlewares/auth.middleware';
@@ -8,7 +8,6 @@ import validationMiddleware from '@middlewares/validation.middleware';
 class AuthRoute implements Routes {
   public path = '/auth';
   public router = Router();
-  public authController = new AuthController();
 
   constructor() {
     this.initializeRoutes();
@@ -18,19 +17,19 @@ class AuthRoute implements Routes {
     this.router.post(
       `${this.path}/sign-up`,
       validationMiddleware(CreateUserDto, 'body'),
-      this.authController.signUp,
+      service.signUp,
     );
     this.router.put(
       `${this.path}/password/:id`,
       validationMiddleware(UpdatePasswordDto, 'body'),
-      this.authController.updatePassword,
+      service.updatePassword,
     );
     this.router.post(
       `${this.path}/sign-in`,
       validationMiddleware(UserSignInDto, 'body'),
-      this.authController.logIn,
+      service.signIn,
     );
-    this.router.post(`${this.path}/sign-out`, authMiddleware, this.authController.logOut);
+    this.router.post(`${this.path}/sign-out`, authMiddleware, service.signOut);
   }
 }
 
