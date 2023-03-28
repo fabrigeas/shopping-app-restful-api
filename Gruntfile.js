@@ -1,6 +1,5 @@
 module.exports = grunt => {
   const pkg = grunt.file.readJSON('package.json');
-  const depBranchName = 'deployment';
 
   /**
    *
@@ -14,23 +13,11 @@ module.exports = grunt => {
   grunt.initConfig({
     pkg,
     shell: {
-      detach: {
-        command: [
-          `git branch -D ${depBranchName}`,
-          `git checkout -b ${depBranchName}`,
-        ].join(';'),
-        options: {
-          stderr: false,
-        },
-      },
-      remerge: {
-        command: ['git checkout -', `git merge ${depBranchName} --no-ff`].join(';'),
-        options: {
-          stdout: false,
-        },
-      },
       revert: {
-        command: ['git checkout -', `git branch -D ${depBranchName}`].join(';'),
+        command: [
+          // 'git checkout -',
+          // `git branch -D ${depBranchName}`
+        ].join(';'),
         options: {
           callback() {
             grunt.log.error(`failed to deploy. Reverting all changes`);
@@ -47,12 +34,6 @@ module.exports = grunt => {
         options: {
           stdout: false,
           callback(error, stderr, {}, callback) {
-            if (error) {
-              console.log(stderr.toString());
-              if (!stderr.toString().includes('no changes added to commit')) {
-                return revertAndAbort(error);
-              }
-            }
             callback();
           },
         },
@@ -63,7 +44,6 @@ module.exports = grunt => {
           callback(error, stderr, {}, callback) {
             if (error) {
               console.log(error);
-              // return revertAndAbort(error);
             }
             callback();
           },
@@ -119,11 +99,9 @@ module.exports = grunt => {
     const isMinor = grunt.option('minor');
     const { task } = grunt;
 
-    task.run('shell:detach');
     task.run('build');
     task.run('shell:bumpVersion:isMinor');
     task.run('shell:updateChangelog');
-    task.run('shell:remerge');
     // task.run('ssh:deploy');
   });
 
