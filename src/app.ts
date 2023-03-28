@@ -14,7 +14,7 @@ import { logger, stream } from '@utils/logger';
 import { Routes } from '@interfaces/routes.interface';
 import path from 'path';
 
-const pathToFrontend = path.join(__dirname, '../frontend/build');
+const pathToFrontend = path.join(__dirname, '../frontend');
 
 export default class App {
   public app: express.Application;
