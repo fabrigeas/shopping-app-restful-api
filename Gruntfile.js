@@ -80,8 +80,12 @@ module.exports = grunt => {
           },
         },
       },
+      push: 'git push',
+      ssh: {
+        command: `ssh ec2 ls && cd ${pkg.name}&& git pull & sudo docker-compose up`,
+        options: {},
+      },
     },
-    secret: grunt.file.readJSON('secret.json'),
   });
 
   grunt.loadNpmTasks('grunt-shell');
@@ -95,15 +99,19 @@ module.exports = grunt => {
     task.run(['sshexec:deploy']);
   });
 
-  grunt.registerTask('deploy', 'Buld bundles, update npm version and changelog, push', () => {
-    const isMinor = grunt.option('minor');
-    const { task } = grunt;
+  grunt.registerTask(
+    'deploy',
+    'Buld bundles, update npm version and changelog, push',
+    () => {
+      const isMinor = grunt.option('minor');
+      const { task } = grunt;
 
-    task.run('build');
-    task.run('shell:bumpVersion:isMinor');
-    task.run('shell:updateChangelog');
-    // task.run('ssh:deploy');
-  });
+      task.run('build');
+      task.run('shell:bumpVersion:isMinor');
+      task.run('shell:updateChangelog');
+      // task.run('ssh:deploy');
+    },
+  );
 
   grunt.registerTask('shell:default', ['npm version']);
 };
