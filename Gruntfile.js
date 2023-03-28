@@ -82,7 +82,7 @@ module.exports = grunt => {
       },
       push: 'git push',
       ssh: {
-        command: `ssh ec2 ls && cd ${pkg.name}&& git pull & sudo docker-compose up`,
+        command: `ssh ec2 "cd ${pkg.name} && git pull && sudo docker-compose up"`,
         options: {},
       },
     },
@@ -109,7 +109,7 @@ module.exports = grunt => {
       task.run('build');
       task.run('shell:bumpVersion:isMinor');
       task.run('shell:updateChangelog');
-      // task.run('ssh:deploy');
+      task.run('shell:ssh');
     },
   );
 
