@@ -89,7 +89,6 @@ module.exports = grunt => {
   });
 
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-ssh');
 
   grunt.registerTask('build', 'Build frontend and backend', () => {
     grunt.task.run(['shell:buildFrontend', 'shell:buildBackend']);
