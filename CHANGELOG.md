@@ -1,3 +1,5 @@
+version bump 1.6.0
+refactor(grunt): remove redundant import
 version bump 1.5.0
 build(frontend): update frontend bumdle
 version bump 1.4.0
