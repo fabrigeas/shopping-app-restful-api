@@ -1,3 +1,5 @@
+version bump 1.3.0
+buid(docker-compose): update server default command
 version bump 1.2.0
 buid(grunt): add git push to pipeline
 fix(app): update frontend path for static files
