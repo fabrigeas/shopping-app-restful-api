@@ -1,3 +1,5 @@
+version bump 1.11.0
+build(frontend): update frontend bumdle
 version bump 1.10.0
 fix(files): upload file fails
 version bump 1.9.0
