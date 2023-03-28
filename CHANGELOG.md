@@ -1,8 +1,14 @@
+version bump 1.2.0
+buid(grunt): add git push to pipeline
+fix(app): update frontend path for static files
+build(grunt): update ssh task
+build: rename package
+chore(gruntfile): add push and ssh tasks
+npm install
+temp(grunt): fix buildFrontend
 version bump 1.1.0
-build(frontend): update frontend bumdle
 chore(gruntfile): update pipeline
-chore(gruntfile): update pipeline
-chore(gruntfile): update pipeline
+update frontend bundle
 update frontend bundle
 update frontend bundle
 fix(router): send index.html file for other routes
