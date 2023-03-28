@@ -1,3 +1,11 @@
+version bump 1.7.0
+build(frontend): update frontend bumdle
+Merge branch 'dev' into main
+refactor(routes/auth): send message rather than throwing error
+fix(services/auth): add blocks to if statements
+ci: add index.html as watch file to restart nodemon
+build(docker-compose): prepend container names
+Merge pull request #1 from fabrigeas/deploy-ec2
 version bump 1.6.0
 refactor(grunt): remove redundant import
 version bump 1.5.0
