@@ -1,3 +1,4 @@
+version bump 1.9.0
 version bump 1.8.0
 docs: update readme
 version bump 1.7.0
