@@ -1,3 +1,5 @@
+version bump 1.4.0
+buid(docker-compose): remove dev task
 version bump 1.3.0
 buid(docker-compose): update server default command
 version bump 1.2.0
