@@ -7,18 +7,18 @@ WORKDIR /app
 
 RUN npm install
 
-EXPOSE 50559
+EXPOSE 61155
 
-# Development build stage
-FROM common-build-stage as development-build-stage
+# # Development build stage
+# FROM common-build-stage as development-build-stage
 
-ENV NODE_ENV development
+# ENV NODE_ENV development
 
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
 
 # Production build stage
 FROM common-build-stage as production-build-stage
 
 ENV NODE_ENV production
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "deploy:prod"]

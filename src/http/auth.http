@@ -1,5 +1,5 @@
 # baseURL
-@baseURL = http://localhost:50559/api/auth
+@baseURL = http://localhost:61155/api/auth
 
 ###
 # User Signup

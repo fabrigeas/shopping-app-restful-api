@@ -24,6 +24,6 @@ clean:
 
 # Run the container image
 run:
-	docker run -d -it -p 50559:50559 ${APP_NAME}
+	docker run -d -it -p 61155:61155 ${APP_NAME}
 
 all: build
