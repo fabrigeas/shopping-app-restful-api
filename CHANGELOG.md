@@ -1,3 +1,5 @@
+version bump 1.10.0
+fix(files): upload file fails
 version bump 1.9.0
 version bump 1.8.0
 docs: update readme
