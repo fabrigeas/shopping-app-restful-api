@@ -1,3 +1,4 @@
+chore(gruntfile): update pipeline
 update frontend bundle
 update frontend bundle
 fix(router): send index.html file for other routes
