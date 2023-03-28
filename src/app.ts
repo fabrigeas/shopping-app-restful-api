@@ -76,7 +76,7 @@ export default class App {
     this.app.use(express.static('images'));
     this.app.use(express.static('frontend'));
     this.app.get('/*', (_, res) => {
-      res.sendFile(pathToFrontend, 'index.html');
+      res.sendFile(`${pathToFrontend}/index.html`);
     });
   }
 
