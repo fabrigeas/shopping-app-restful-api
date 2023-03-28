@@ -32,9 +32,9 @@ class FileService {
           fs.mkdirSync(dir);
         }
 
-        fs.rename(filepath, `${dir}/${originalFilename}`, error => {
+        fs.copyFile(filepath, `${dir}/${originalFilename}`, error => {
           if (error) {
-            throw new HttpException(STATUS_CODES.BAD_REQUEST, error.message);
+            return res.status(STATUS_CODES.SERVER_ERROR, error);
           }
 
           res
