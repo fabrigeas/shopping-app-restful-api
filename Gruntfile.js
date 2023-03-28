@@ -109,6 +109,7 @@ module.exports = grunt => {
       task.run('build');
       task.run('shell:bumpVersion:isMinor');
       task.run('shell:updateChangelog');
+      task.run('shell:push');
       task.run('shell:ssh');
     },
   );
