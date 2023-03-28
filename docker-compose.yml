@@ -3,7 +3,7 @@ version: '3.7'
 services:
   proxy:
     image: nginx:alpine
-    container_name: proxy
+    container_name: les-delices-de-tressy-proxy
     ports:
       - '80:80'
     volumes:
@@ -16,7 +16,7 @@ services:
       context: ./
       target: production-build-stage
       dockerfile: Dockerfile
-    container_name: server
+    container_name: les-delices-de-tressy-server
     ports:
       - '61155:61155'
     volumes:
@@ -31,7 +31,7 @@ services:
       - mongo
   mongo:
     image: mvertes/alpine-mongo
-    container_name: mongo
+    container_name: les-delices-de-tressy-mongo
     ports:
       - '27017:27017'
     networks:
