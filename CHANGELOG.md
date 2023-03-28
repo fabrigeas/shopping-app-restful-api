@@ -1,3 +1,7 @@
+version bump 1.1.0
+build(frontend): update frontend bumdle
+chore(gruntfile): update pipeline
+chore(gruntfile): update pipeline
 chore(gruntfile): update pipeline
 update frontend bundle
 update frontend bundle
