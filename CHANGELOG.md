@@ -1,3 +1,5 @@
+version bump 1.12.0
+fix(routes): render index page on reload
 version bump 1.11.0
 build(frontend): update frontend bumdle
 version bump 1.10.0
