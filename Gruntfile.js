@@ -14,10 +14,7 @@ module.exports = grunt => {
     pkg,
     shell: {
       revert: {
-        command: [
-          // 'git checkout -',
-          // `git branch -D ${depBranchName}`
-        ].join(';'),
+        command: [].join(';'),
         options: {
           callback() {
             grunt.log.error(`failed to deploy. Reverting all changes`);
@@ -82,8 +79,15 @@ module.exports = grunt => {
       },
       push: 'git push',
       ssh: {
-        command: `ssh ec2 "cd ${pkg.name} && git pull && sudo docker-compose up"`,
+        command: `ssh ec2 "cd ${pkg.name} && git pull && sudo docker-compose up -d"`,
         options: {},
+      },
+      copyEnvFiles: {
+        command: [
+          `scp .env.development.local ec2:${pkg.name}`,
+          `scp .env.test.local ec2:${pkg.name}`,
+          `scp .env.production.local ec2:${pkg.name}`,
+        ].join(';'),
       },
     },
   });
@@ -109,6 +113,7 @@ module.exports = grunt => {
       task.run('shell:bumpVersion:isMinor');
       task.run('shell:updateChangelog');
       task.run('shell:push');
+      task.run('shell:copyEnvFiles');
       task.run('shell:ssh');
     },
   );
