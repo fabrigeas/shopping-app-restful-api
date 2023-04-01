@@ -1,3 +1,5 @@
+version bump 1.15.0
+deploy(Gruntfile): scp .env files
 version bump 1.14.0
 build(frontend): update frontend bumdle
 version bump 1.13.0
