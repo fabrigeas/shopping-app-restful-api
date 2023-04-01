@@ -1,3 +1,4 @@
+version bump 1.16.0
 version bump 1.15.0
 deploy(Gruntfile): scp .env files
 version bump 1.14.0
