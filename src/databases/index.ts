@@ -1,6 +1,6 @@
-const DB_HOST = process.env.NODE_ENV === 'production' ? 'mongo' : '127.0.0.1';
+import { DB_HOST, DB_PORT } from '@/config';
 
 export const dbConnection = {
-  url: `mongodb://${DB_HOST}:27018/shop`,
+  url: `mongodb://${DB_HOST}:${DB_PORT}/shop`,
   options: {},
 };

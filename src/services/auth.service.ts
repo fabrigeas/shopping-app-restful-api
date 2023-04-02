@@ -9,6 +9,7 @@ import { isEmpty } from '@utils/util';
 import { STATUS_CODES } from '@utils/constants';
 import { NextFunction, Request, Response } from 'express';
 import { RequestWithUser } from '@interfaces/auth.interface';
+import { SECRET_KEY } from '@/config';
 
 const MISSING_USER_DATA = 'userData is empty';
 const HASH_LENGTH = 10;
@@ -130,9 +131,8 @@ const createCookie = (token: TokenData): string => {
 
 const createToken = (user: User): TokenData => {
   const dataStoredInToken: DataStoredInToken = { _id: user._id };
-  const secretKey = '';
   const expiresIn: number = 60 * 60;
 
   // TODO: replace secreKey with value from env
-  return { expiresIn, token: sign(dataStoredInToken, 'secretKey', { expiresIn }) };
+  return { expiresIn, token: sign(dataStoredInToken, SECRET_KEY, { expiresIn }) };
 };

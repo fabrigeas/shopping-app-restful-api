@@ -6,7 +6,7 @@ export const {
   NODE_ENV,
   PORT,
   DB_PORT,
-  DB_DATABASE,
+  DB_HOST,
   SECRET_KEY,
   LOG_FORMAT,
   LOG_DIR,

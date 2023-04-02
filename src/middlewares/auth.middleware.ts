@@ -3,6 +3,7 @@ import { verify } from 'jsonwebtoken';
 import { HttpException } from '@exceptions/HttpException';
 import { DataStoredInToken, RequestWithUser } from '@interfaces/auth.interface';
 import userModel from '@models/users.model';
+import { SECRET_KEY } from '@/config';
 
 const authMiddleware = async (
   req: RequestWithUser,
@@ -17,10 +18,9 @@ const authMiddleware = async (
         : null);
 
     if (Authorization) {
-      const secretKey = '';
       const verificationResponse = (await verify(
         Authorization,
-        secretKey,
+        SECRET_KEY,
       )) as DataStoredInToken;
       const userId = verificationResponse._id;
       const findUser = await userModel.findById(userId);
