@@ -1,3 +1,4 @@
+version bump 1.20.0
 version bump 1.19.0
 build: refactor PORT numbers to use new EC" Instance
 build(app): log connection status
