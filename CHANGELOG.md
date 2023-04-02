@@ -1,3 +1,5 @@
+version bump 1.18.0
+build: change part numbers and database  host name
 version bump 1.17.0
 build: chage mongo and nginx port numbers
 version bump 1.16.0
