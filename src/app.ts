@@ -13,7 +13,7 @@ import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 import { Routes } from '@interfaces/routes.interface';
 import path from 'path';
-import { NODE_ENV, PORT } from './config';
+import { DB_HOST, NODE_ENV, PORT } from './config';
 
 const pathToFrontend = path.join(__dirname, '../frontend');
 
@@ -50,7 +50,13 @@ export default class App {
   private connectToDatabase() {
     mongoose.set('strictQuery', false);
 
-    connect(dbConnection.url, dbConnection.options);
+    connect(dbConnection.url, dbConnection.options)
+      .then(() => {
+        console.log(`Successfully connected to database ${DB_HOST}`);
+      })
+      .catch(() => {
+        console.log(`Failed to connected to database ${DB_HOST}`);
+      });
   }
 
   private initializeMiddlewares() {
