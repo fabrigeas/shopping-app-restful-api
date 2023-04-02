@@ -13,16 +13,19 @@ import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 import { Routes } from '@interfaces/routes.interface';
 import path from 'path';
+import { NODE_ENV, PORT } from './config';
 
 const pathToFrontend = path.join(__dirname, '../frontend');
 
 export default class App {
   public app: express.Application;
   public port: string | number;
+  public env: string | number;
 
   constructor(routes: Routes[]) {
     this.app = express();
-    this.port = 61155;
+    this.port = PORT ?? 4231;
+    this.env = NODE_ENV ?? 'development';
 
     this.initializeMiddlewares();
     this.initializeSwagger();
@@ -34,6 +37,7 @@ export default class App {
   public listen() {
     this.app.listen(this.port, () => {
       logger.info(`=================================`);
+      logger.info(`env ${this.env}`);
       logger.info(`🚀 App listening on the port ${this.port}`);
       logger.info(`=================================`);
     });
