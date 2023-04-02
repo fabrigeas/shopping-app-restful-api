@@ -1,3 +1,5 @@
+version bump 1.17.0
+build: chage mongo and nginx port numbers
 version bump 1.16.0
 version bump 1.15.0
 deploy(Gruntfile): scp .env files
