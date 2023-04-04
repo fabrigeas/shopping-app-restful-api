@@ -98,9 +98,13 @@ module.exports = grunt => {
     grunt.task.run(['shell:buildFrontend', 'shell:buildBackend']);
   });
 
-  grunt.registerTask('ssh:deploy', '', () => {
-    task.run(['sshexec:deploy']);
-  });
+  grunt.registerTask(
+    'deploy:frontend',
+    'Update frontend bundle and restard server',
+    () => {
+      grunt.task.run(['shell:buildFrontend', 'shell:push', 'shell:ssh']);
+    },
+  );
 
   grunt.registerTask(
     'deploy',
