@@ -5,7 +5,12 @@ const offerSchema: Schema = new Schema<Offer>(
   {
     title: { type: String, required: true },
     date: { type: Date, required: false },
-    images: [String],
+    images: {
+      type: [String],
+      get: function (images) {
+        return images.map(i => `/offer/${this._id}/${i}`);
+      },
+    },
     daysOfTheWeek: [String],
     description: String,
     offerType: {
@@ -18,6 +23,7 @@ const offerSchema: Schema = new Schema<Offer>(
   {
     toJSON: {
       virtuals: true,
+      getters: true,
       transform: function (_, ret) {
         ret.id = ret._id;
         delete ret._id;
