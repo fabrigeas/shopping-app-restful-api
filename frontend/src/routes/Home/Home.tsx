@@ -25,7 +25,7 @@ const Home = (): JSX.Element => {
   );
   const user = useAppSelector(({ user }) => user);
   const isAdmin = user
-    ? ['mamdjotresia99', 'mawelle', 'jenny', 'fabrigeas'].includes(
+    ? ['mamdjotresia99', 'mawelle', 'mkjenny', 'fabrigeas'].includes(
         user.email.split('@')[0]
       )
     : false;
