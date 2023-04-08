@@ -69,7 +69,6 @@
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "git-commit-msg-linter": "^4.7.4",
     "grunt-shell": "^4.0.0",
     "husky": "^8.0.3",
     "jest": "^29.4.3",
