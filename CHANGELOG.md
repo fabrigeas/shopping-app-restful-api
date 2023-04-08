@@ -1,3 +1,11 @@
+version bump 1.23.0
+refactor(editcard)
+fix(routing): serve staic files for images
+refactor(routing): remove redundant index controller
+feat(frontend): import reafct frontend project
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
 version bump 1.22.0
 version bump 1.21.0
 fix(services): remove duplicate name validation
