@@ -1,3 +1,6 @@
+version bump 1.31.0
+build(frontend): update frontend bumdle
+docs(index): change app name to artemist
 version bump 1.30.0
 build(frontend): update frontend bumdle
 refactor(auth): add mknenny15 to admins
