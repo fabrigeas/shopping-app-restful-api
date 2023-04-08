@@ -1,3 +1,5 @@
+version bump 1.24.0
+build(package): deploy:prod command
 version bump 1.23.0
 refactor(editcard)
 fix(routing): serve staic files for images
