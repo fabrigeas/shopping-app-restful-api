@@ -8,7 +8,7 @@ const offerSchema: Schema = new Schema<Offer>(
     images: {
       type: [String],
       get: function (images) {
-        return images.map(i => `/offer/${this._id}/${i}`);
+        return images.map(i => `/offers/${this._id}/${i}`);
       },
       set: function (images) {
         return images.map(i => i.split('/').pop());
