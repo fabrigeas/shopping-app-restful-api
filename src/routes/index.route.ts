@@ -16,6 +16,7 @@ class IndexRoute implements Routes {
     const { router } = this;
 
     router.use(express.static('frontend/build'));
+    router.use(express.static('images'));
     router.get('/*', (_, res) => {
       res.sendFile(`${pathToFrontend}/build/index.html`);
     });
