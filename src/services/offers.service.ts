@@ -60,17 +60,6 @@ class OfferService {
     if (isEmpty(offerData))
       throw new HttpException(STATUS_CODES.BAD_REQUEST, 'offerData is empty');
 
-    const { title } = offerData;
-
-    if (title) {
-      const findOffer: Offer = await this.offers.findOne({ title });
-      if (findOffer && findOffer._id != offerId)
-        throw new HttpException(
-          STATUS_CODES.CONFLICT,
-          `This title ${offerData.title} already exists`,
-        );
-    }
-
     return await this.patchOffer(offerId, offerData);
   }
 
