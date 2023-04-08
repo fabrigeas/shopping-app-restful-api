@@ -16,7 +16,7 @@ const OfferDetail = () => {
   const paginationText = `${slideIndex + 1}/${length} `;
   const user = useAppSelector(state => state.user);
   const isAdmin = user
-    ? ['mamdjotresia99', 'mawelle', 'mkjenny', 'fabrigeas'].includes(
+    ? ['mamdjotresia99', 'mawelle', 'mkjenny15', 'fabrigeas'].includes(
         user.email.split('@')[0]
       )
     : false;
