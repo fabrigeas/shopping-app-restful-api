@@ -1,3 +1,8 @@
+version bump 1.26.0
+build(frontend): update frontend bumdle
+npm uninstall git-commit-msg-linter
+build(Dockerfile): fix missing comment
+build: prepare artemist
 version bump 1.25.0
 build frontend bundle
 version bump 1.24.0
