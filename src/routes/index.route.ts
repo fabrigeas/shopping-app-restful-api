@@ -1,21 +1,24 @@
-import { Router } from 'express';
-import IndexController from '@controllers/index.controller';
+import express, { Router } from 'express';
 import { Routes } from '@interfaces/routes.interface';
+import path from 'path';
+
+const pathToFrontend = path.join(__dirname, '../../frontend');
 
 class IndexRoute implements Routes {
   public path = '/';
   public router = Router();
-  public indexController = new IndexController();
 
   constructor() {
     this.initializeRoutes();
   }
 
   private initializeRoutes() {
-    this.router.get(
-      ['/', '/offers?', '/offer/*', '/my*', '/sign*'],
-      this.indexController.index,
-    );
+    const { router } = this;
+
+    router.use(express.static('frontend/build'));
+    router.get('/*', (_, res) => {
+      res.sendFile(`${pathToFrontend}/build/index.html`);
+    });
   }
 }
 

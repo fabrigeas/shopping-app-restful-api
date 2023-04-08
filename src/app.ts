@@ -12,10 +12,7 @@ import { dbConnection } from '@databases';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 import { Routes } from '@interfaces/routes.interface';
-import path from 'path';
 import { DB_HOST, NODE_ENV, PORT } from './config';
-
-const pathToFrontend = path.join(__dirname, '../frontend');
 
 export default class App {
   public app: express.Application;
@@ -84,10 +81,6 @@ export default class App {
     });
 
     this.app.use(express.static('images'));
-    this.app.use(express.static('frontend'));
-    this.app.get('/*', (_, res) => {
-      res.sendFile(`${pathToFrontend}/index.html`);
-    });
   }
 
   private initializeSwagger() {
