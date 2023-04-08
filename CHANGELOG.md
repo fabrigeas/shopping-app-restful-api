@@ -1,3 +1,6 @@
+version bump 1.30.0
+build(frontend): update frontend bumdle
+refactor(auth): add mknenny15 to admins
 version bump 1.29.0
 build(frontend): update frontend bumdle
 refactor(auth): add mknenny to admins
