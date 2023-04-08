@@ -79,14 +79,14 @@ module.exports = grunt => {
       },
       push: 'git push',
       ssh: {
-        command: `ssh tressy "cd ${pkg.name} && git pull && sudo docker-compose up -d"`,
+        command: `ssh artemist "cd ${pkg.name} && git pull && sudo docker-compose up -d"`,
         options: {},
       },
       copyEnvFiles: {
         command: [
-          `scp .env.development.local tressy:${pkg.name}`,
-          `scp .env.test.local tressy:${pkg.name}`,
-          `scp .env.production.local tressy:${pkg.name}`,
+          `scp .env.development.local artemist:${pkg.name}`,
+          `scp .env.test.local artemist:${pkg.name}`,
+          `scp .env.production.local artemist:${pkg.name}`,
         ].join(';'),
       },
     },
