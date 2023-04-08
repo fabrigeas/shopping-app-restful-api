@@ -1,3 +1,6 @@
+version bump 1.29.0
+build(frontend): update frontend bumdle
+refactor(auth): add mknenny to admins
 version bump 1.28.0
 version bump 1.27.0
 build(pacakge): revert package name
