@@ -33,7 +33,7 @@ const EditOffer = () => {
   const mainImage = files.length
     ? URL.createObjectURL(files[0])
     : offer.images.length
-    ? `${IMAGE_BASE_URL}/${offer.images[0]}`
+    ? `${IMAGE_BASE_URL}${offer.images[0]}`
     : undefined;
   const onImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     event?.preventDefault();
