@@ -1,3 +1,4 @@
+version bump 1.22.0
 version bump 1.21.0
 fix(services): remove duplicate name validation
 feat(models): set images prefixes
