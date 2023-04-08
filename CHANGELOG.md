@@ -1,3 +1,18 @@
+version bump 1.21.0
+fix(services): remove duplicate name validation
+feat(models): set images prefixes
+build(frontend): update frontend bumdle
+feat(models/offers): add images getters, setters
+feat(models): map images before responding
+build(Docker): change default command
+build(grunt): fix failing deploy frontend task
+build(husky): remove failing pre-push hook
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
+build(frontend): update frontend bumdle
 version bump 1.20.0
 version bump 1.19.0
 build: refactor PORT numbers to use new EC" Instance
