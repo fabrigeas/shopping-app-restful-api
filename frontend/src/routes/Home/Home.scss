@@ -1,0 +1,59 @@
+@import '../../global.scss';
+
+.home {
+	padding: $small;
+	.actions {
+		position: fixed;
+		bottom: $small;
+		right: $small;
+		gap: $medium;
+		display: flex;
+		& > * {
+			background: $success;
+			padding: $small
+				$large;
+			border-radius: $small;
+			color: white;
+			text-decoration: none;
+			&:hover {
+				background: lighten(
+					$success,
+					10%
+				);
+			}
+		}
+	}
+	.searchbox {
+		display: flex;
+		border: solid $x-small
+			darkgray;
+		width: 50%;
+		margin: auto;
+		border-radius: $medium;
+		padding: $x-small;
+		margin-top: $small;
+		margin-bottom: $medium;
+
+		& input {
+			padding: $medium;
+			margin-right: auto;
+			flex: 2;
+			border: none;
+			outline: none;
+		}
+		.search-icon {
+			font-weight: bold;
+			padding: 0 0.4rem;
+			margin: auto;
+			font-size: xx-large;
+		}
+	}
+	@media (max-width: $tablet) {
+		form {
+			padding: $x-small;
+		}
+		.searchbox {
+			width: 100%;
+		}
+	}
+}

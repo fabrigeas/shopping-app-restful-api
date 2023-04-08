@@ -1,0 +1,28 @@
+@import '../../global.scss';
+.list-view {
+  min-height: 100vh;
+}
+nav.pagination {
+  $scale: 120%;
+  width: 100%;
+  ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button {
+    margin: 0 $x-small;
+    cursor: pointer;
+    padding: $small;
+    &.active {
+      scale: 1.2;
+      font-weight: 900;
+      font-size: larger;
+      margin: 0 $small;
+    }
+    &:hover {
+      scale: 1.3;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../global.scss';
+header {
+	cursor: pointer;
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	background: $bg;
+	color: #010405;
+	menu li {
+		margin: auto;
+	}
+	a {
+		margin: auto;
+		color: #8babf1;
+		display: block;
+		&:hover {
+			background: lighten(
+				lightgray,
+				5%
+			);
+		}
+	}
+	li {
+		list-style-type: none;
+	}
+	details {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		margin: auto;
+		z-index: 1;
+		text-align: center;
+		ul {
+			background: $bg;
+			position: absolute;
+			& :hover {
+				background: lighten(
+					$bg,
+					5%
+				);
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	header {
+		nav {
+			flex-direction: column-reverse;
+			menu {
+				flex: 4;
+			}
+		}
+		.dropdown {
+			width: 100%;
+		}
+	}
+}

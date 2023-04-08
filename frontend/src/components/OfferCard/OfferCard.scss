@@ -1,0 +1,73 @@
+@import '../../global.scss';
+.card {
+	@media (max-width: $tablet) {
+		flex-direction: column !important;
+		height: auto;
+		.content {
+			padding: 0 !important;
+		}
+		.offer {
+			flex-direction: column;
+		}
+		.sub-total {
+			margin-top: $medium;
+		}
+		.order {
+			width: 100%;
+			padding: 0 !important;
+			& > * {
+				flex: 1;
+				margin: 0 !important;
+			}
+		}
+	}
+
+	.offer {
+		margin-top: auto;
+		display: flex;
+		.order {
+			display: flex;
+			padding: $x-small;
+			& > * {
+				padding: 0
+					$large;
+				font-weight: bold;
+				margin: 0
+					$x-small;
+				border-radius: $small;
+				text-align: center;
+				outline: none;
+				border: solid
+					$x-small
+					#d9e4ff;
+				font-size: x-large;
+				background: none;
+				&:not(props.data):hover {
+					scale: 1.1;
+					cursor: pointer;
+				}
+			}
+			input {
+				border: none;
+				max-width: 3rem;
+				padding: 0;
+			}
+		}
+	}
+
+	.tags {
+		position: absolute;
+		top: 0;
+		right: $large;
+		display: flex;
+		gap: $x-small;
+		& > * {
+			border: solid 0.5px
+				darkgray;
+			padding: 0 $x-small;
+		}
+		.active {
+			background: $success;
+		}
+	}
+}
