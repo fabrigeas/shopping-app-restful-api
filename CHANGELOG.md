@@ -1,3 +1,5 @@
+version bump 1.27.0
+build(pacakge): revert package name
 version bump 1.26.0
 build(frontend): update frontend bumdle
 npm uninstall git-commit-msg-linter
