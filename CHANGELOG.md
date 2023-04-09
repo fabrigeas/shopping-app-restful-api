@@ -1,3 +1,9 @@
+version bump 1.33.0
+build(frontend): update frontend bumdle
+build(grunt): remove sudo from docker-comopose up
+styles(OfferCard): remove text-underline from title
+build(frontend): update frontend bumdle
+fix(offercard): display description in short format
 version bump 1.32.0
 build(frontend): update frontend bumdle
 fix(offercard): display full image in listview
