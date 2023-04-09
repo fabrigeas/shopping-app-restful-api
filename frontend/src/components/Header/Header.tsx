@@ -75,6 +75,7 @@ const Header = (): JSX.Element => {
             }}
           >
             <img
+              alt='SHop logo'
               style={{
                 height: '100%',
                 width: '100%',
