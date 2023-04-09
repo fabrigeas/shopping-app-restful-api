@@ -142,7 +142,14 @@ const OfferCard = (props: CardProps): JSX.Element => {
           padding: '2rem 0.5rem 0.5rem',
         }}
       >
-        <p style={{ margin: '0' }}>
+        <p
+          style={{
+            margin: '0',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
           <Link
             to={`/offer/${offer.id}/view`}
             title='Click to view offer detail'
@@ -152,7 +159,10 @@ const OfferCard = (props: CardProps): JSX.Element => {
           </Link>
           <br />
           {isOffer && (
-            <label className='description' style={{ marginLeft: 0 }}>
+            <label
+              className='description'
+              style={{ marginLeft: 0, whiteSpace: 'nowrap' }}
+            >
               {offer.description}
             </label>
           )}
