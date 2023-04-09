@@ -1,3 +1,8 @@
+version bump 1.32.0
+build(frontend): update frontend bumdle
+fix(offercard): display full image in listview
+chore(gruntfile): add start task
+fix(Header): add alt to logo
 version bump 1.31.0
 build(frontend): update frontend bumdle
 docs(index): change app name to artemist
