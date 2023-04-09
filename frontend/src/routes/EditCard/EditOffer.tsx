@@ -21,15 +21,6 @@ const EditOffer = () => {
     'salad',
     'today',
   ] as OfferType[];
-  const daysOfTheWeek = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
   const mainImage = files.length
     ? URL.createObjectURL(files[0])
     : offer.images.length
