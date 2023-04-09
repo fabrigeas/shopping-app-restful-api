@@ -176,17 +176,19 @@ const OfferCard = (props: CardProps): JSX.Element => {
           )}
         </p>
         <div className='offer'>
-          <span
-            className='price'
-            style={{
-              marginTop: 'auto',
-              marginLeft: 'auto',
-              fontSize: 'x-large',
-            }}
-          >
-            {offer.price}FCFA
-          </span>
-          {!isOffer && <CartContent />}
+          {offer.price ? (
+            <span
+              className='price'
+              style={{
+                marginTop: 'auto',
+                marginLeft: 'auto',
+                fontSize: 'x-large',
+              }}
+            >
+              {offer.price}FCFA
+            </span>
+          ) : null}
+          {isOffer ? null : <CartContent />}
         </div>
       </div>
       <div className='tags'>
