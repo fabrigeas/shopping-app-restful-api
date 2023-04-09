@@ -153,7 +153,7 @@ const OfferCard = (props: CardProps): JSX.Element => {
           <Link
             to={`/offer/${offer.id}/view`}
             title='Click to view offer detail'
-            style={{ fontSize: 'x-large' }}
+            style={{ fontSize: 'x-large', textDecoration: 'none' }}
           >
             <strong className='title'>{offer.title}</strong>
           </Link>
