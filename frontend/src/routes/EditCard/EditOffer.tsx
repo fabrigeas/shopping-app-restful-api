@@ -278,32 +278,6 @@ const EditOffer = () => {
                 ))}
               </select>
             </div>
-            <div className='form-control' style={{ padding: '1rem 0' }}>
-              <label>Day of the week</label>
-              <div
-                className='days-of-the-week'
-                style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  cursor: 'pointer',
-                }}
-              >
-                {daysOfTheWeek.map(day => (
-                  <label key={day} style={{ display: 'grid' }}>
-                    {day}
-                    <input
-                      type='checkbox'
-                      style={{
-                        padding: '1rem',
-                        margin: 'auto',
-                      }}
-                      checked={offer.daysOfTheWeek.includes(day)}
-                      onChange={() => updateDays(day)}
-                    />
-                  </label>
-                ))}
-              </div>
-            </div>
             <Input
               label='Offer description:'
               value={offer.description}
