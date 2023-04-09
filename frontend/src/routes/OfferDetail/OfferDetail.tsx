@@ -47,7 +47,7 @@ const OfferDetail = () => {
                 justifyContent: 'center',
               }}
             >
-              <img src={`${IMAGE_BASE_URL}${img}`} />
+              <img src={`${IMAGE_BASE_URL}${img}`} alt='' />
             </div>
           </div>
         ))}
