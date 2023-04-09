@@ -56,42 +56,35 @@ const Header = (): JSX.Element => {
 
   return (
     <header>
+      <div
+        className='logo'
+        style={{
+          margin: 'auto',
+          width: '8vw',
+          background: 'black',
+        }}
+      >
+        <img
+          alt=''
+          style={{
+            height: '100%',
+            width: '100%',
+            background: 'pink',
+            objectFit: 'contain',
+          }}
+        />
+      </div>
       <nav style={{ display: 'flex' }}>
         <menu
           style={{
             display: 'flex',
             justifyContent: 'center',
             listStyleType: 'none',
-            flex: 4,
+            flex: 2,
           }}
         >
-          <div
-            className='logo'
-            style={{
-              margin: 'auto',
-              height: '6vh',
-              width: '8vw',
-              background: 'black',
-            }}
-          >
-            <img
-              alt='SHop logo'
-              style={{
-                height: '100%',
-                width: '100%',
-                background: 'pink',
-                objectFit: 'contain',
-              }}
-            />
-          </div>
           <li>
-            <Link to={ROUTES.HOME}>Nos Menus</Link>
-          </li>
-          <li>
-            <Link to={ROUTES.SALAD}>Cruditees</Link>
-          </li>
-          <li>
-            <Link to={ROUTES.DRINK}>Boissons</Link>
+            <Link to={ROUTES.HOME}>Nos Offres</Link>
           </li>
         </menu>
         {shouldRenderDropdown ? <Dropdown /> : null}

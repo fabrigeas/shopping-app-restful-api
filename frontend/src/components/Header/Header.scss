@@ -47,7 +47,6 @@ header {
 @media (max-width: $mobile) {
 	header {
 		nav {
-			flex-direction: column-reverse;
 			menu {
 				flex: 4;
 			}
