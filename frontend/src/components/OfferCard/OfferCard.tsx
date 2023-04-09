@@ -153,7 +153,11 @@ const OfferCard = (props: CardProps): JSX.Element => {
           <Link
             to={`/offer/${offer.id}/view`}
             title='Click to view offer detail'
-            style={{ fontSize: 'x-large', textDecoration: 'none' }}
+            style={{
+              fontSize: 'x-large',
+              textDecoration: 'none',
+              color: '#6c757d',
+            }}
           >
             <strong className='title'>{offer.title}</strong>
           </Link>
@@ -161,7 +165,11 @@ const OfferCard = (props: CardProps): JSX.Element => {
           {isOffer && (
             <label
               className='description'
-              style={{ marginLeft: 0, whiteSpace: 'nowrap' }}
+              style={{
+                marginLeft: 0,
+                whiteSpace: 'nowrap',
+                padding: '0 0.25rem',
+              }}
             >
               {offer.description}
             </label>
