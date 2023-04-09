@@ -44,7 +44,8 @@ const OfferCard = (props: CardProps): JSX.Element => {
   const [quantity, setQuantity] = useState(
     isOffer ? 0 : (data as CartItem).quantity
   );
-  const subTotal = isOffer ? 0 : quantity * parseInt(offer.price);
+  const price = parseInt(offer.price) ?? 0;
+  const subTotal = isOffer ? 0 : quantity * price;
   const updateQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
     const quantity = parseInt(e.target.value);
 
@@ -175,7 +176,7 @@ const OfferCard = (props: CardProps): JSX.Element => {
           )}
         </p>
         <div className='offer'>
-          {offer.price ? (
+          {price > 0 ? (
             <span
               className='price'
               style={{
@@ -184,7 +185,7 @@ const OfferCard = (props: CardProps): JSX.Element => {
                 fontSize: 'x-large',
               }}
             >
-              {offer.price}FCFA
+              {price}FCFA
             </span>
           ) : null}
           {isOffer ? null : <CartContent />}
