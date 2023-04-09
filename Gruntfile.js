@@ -79,7 +79,7 @@ module.exports = grunt => {
       },
       push: 'git push',
       ssh: {
-        command: `ssh artemist "cd ${pkg.name} && git pull && sudo docker-compose up -d"`,
+        command: `ssh artemist "cd ${pkg.name} && git pull && docker-compose up -d"`,
         options: {},
       },
       copyEnvFiles: {
