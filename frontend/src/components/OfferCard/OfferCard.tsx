@@ -37,7 +37,6 @@ const OfferCard = (props: CardProps): JSX.Element => {
     });
     return result;
   };
-  const daysOfTheWeek = sortDaysOfTheWeek();
   const className = `offer-card card ${
     isOffer ? 'offer' : 'cartItem'
   } ${offerType}`;
@@ -190,16 +189,6 @@ const OfferCard = (props: CardProps): JSX.Element => {
           ) : null}
           {isOffer ? null : <CartContent />}
         </div>
-      </div>
-      <div className='tags'>
-        {daysOfTheWeek.map((day, i) => (
-          <span
-            key={i}
-            className={`day ${day.substring(0, 3) === today ? 'active' : ''}`}
-          >
-            {day.substring(0, 3)}
-          </span>
-        ))}
       </div>
     </div>
   );
