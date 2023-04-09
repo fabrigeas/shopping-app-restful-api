@@ -89,6 +89,13 @@ module.exports = grunt => {
           `scp .env.production.local artemist:${pkg.name}`,
         ].join(';'),
       },
+      startBackend: {
+        command: ['npm run dev'].join(';'),
+      },
+      startFrontend: {
+        command: ['npm start'].join(';'),
+        cwd: 'frontend',
+      },
     },
   });
 
@@ -105,6 +112,9 @@ module.exports = grunt => {
       grunt.task.run(['shell:buildFrontend', 'shell:push', 'shell:ssh']);
     },
   );
+  grunt.registerTask('start', 'start server and frontend', () => {
+    grunt.task.run(['shell:startFrontend', 'shell:startBackend']);
+  });
 
   grunt.registerTask(
     'deploy',
