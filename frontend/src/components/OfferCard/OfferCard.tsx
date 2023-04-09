@@ -168,7 +168,6 @@ const OfferCard = (props: CardProps): JSX.Element => {
               style={{
                 marginLeft: 0,
                 whiteSpace: 'nowrap',
-                padding: '0 0.25rem',
               }}
             >
               {offer.description}
