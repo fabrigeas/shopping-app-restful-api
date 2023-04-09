@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IMAGE_BASE_URL,  } from '../../constants';
+import { IMAGE_BASE_URL } from '../../constants';
 import { Offer, CartItem } from '../../types';
 import { Button } from '@fabrigeas/react-components';
 import { Link } from 'react-router-dom';
@@ -112,23 +112,26 @@ const OfferCard = (props: CardProps): JSX.Element => {
         boxShadow: ' 0.25rem 0.25rem #f1f1f7',
       }}
     >
-      <div
-        className='image'
-        style={{ height: '32vh', flex: 2, position: 'relative' }}
+      <Link
+        to={`/offer/${offer.id}/view`}
+        title='Click to view offer detail'
+        style={{ flex: 2 }}
       >
-        <Link to={`/offer/${offer.id}/view`} title='Click to view offer detail'>
+        <div
+          className='image'
+          style={{ height: '32vh', flex: 2, position: 'relative' }}
+        >
           <img
             src={`${IMAGE_BASE_URL}${offer.images[0]}`}
             alt={offer.title}
             style={{
               width: '100%',
-              height: '32vh',
-              objectFit: 'contain',
-              // background: '#000000cc',
+              height: '100%',
+              objectFit: 'cover',
             }}
           />
-        </Link>
-      </div>
+        </div>
+      </Link>
       <div
         className='content'
         style={{
